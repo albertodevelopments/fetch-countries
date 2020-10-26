@@ -1,8 +1,15 @@
 :root{
     --white: #fff;
-    --very-light-gray: #fafafa;
-    --dark-blue: #2B3945;
-    --very-dark-blue: #111517;
+    --dark: #111517;
+    --light-background: #fafafa;
+    --dark-elements: #2B3945;
+    --dark-background: #202C37;
+    --dark-gray: #858585;
+    --dark-border-color: #1e2833;
+    --border-color: #202C37ee;
+    --header-height: 5rem;
+    --left-margin: 3rem;
+    --light-text-color: #fafafaaa;
 }
 
 @font-face{
@@ -15,11 +22,16 @@
     src: url('./assets/fonts/NunitoSans-ExtraBold.ttf')
 }
 
+@font-face{
+    font-family: 'Nunito Sans Light';
+    src: url('./assets/fonts/NunitoSans-Light.ttf')
+}
+
 /* Reglas de normalización */
 html,
 body {
     width: 100%;
-    height: calc(100% - 5rem);
+    height: 100%;
     background-color: rgb(238, 238, 238);
     font-family: 'Nunito Sans'
 }
