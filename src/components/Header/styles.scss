@@ -6,23 +6,52 @@
     height: var(--header-height);
     justify-content: space-between;
     align-items: center;
-    background-color: var(--dark-elements);
-    border-bottom: 5px solid var(--dark-border-color);
     padding: 1rem;
 
     h1{
-        margin-left: 2.5rem;
-        color: var(--white);
+        margin-left: 2.5rem;        
+        font-family: 'Nunito Sans';
     }
 
     div{
         margin-right: 2.5rem;
         cursor: pointer;
-        i{
-            color: var(--white);
-        }
-        span{
-            color: var(--white);
-        }
     }   
+
+    span{
+        font-family: 'Nunito Sans Light';
+    }
+}
+
+.header-dark{
+    background-color: var(--dark-elements);
+    border-bottom: 5px solid var(--dark-border-color);
+    
+    i{
+        color: var(--dark-text);
+    }
+    span{
+        font-family: 'Nunito Sans Light';
+        color: var(--dark-text);
+    }
+
+    h1{
+        color: var(--dark-text);
+    }
+}
+
+.header-light{
+    background-color: var(--light-elements);
+    border-bottom: 5px solid var(--light-border-color);
+
+    i{
+        color: var(--light-text);
+    }
+    span{
+        color: var(--light-text);
+    }
+
+    h1{
+        color: var(--light-text);
+    }
 }

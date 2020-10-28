@@ -1,15 +1,22 @@
 :root{
-    --white: #fff;
-    --dark: #111517;
-    --light-background: #fafafa;
+    /* --white: #fff;
+    --dark: #111517; */
+
     --dark-elements: #2B3945;
     --dark-background: #202C37;
-    --dark-gray: #858585;
-    --dark-border-color: #1e2833;
-    --border-color: #202C37ee;
+    --dark-input-text: #d6d5d5;
+    --dark-border-color: #202C37ee;
+    --dark-text: #fafafa;
+    --dark-info-text: #fafafaaa;
+
+    --light-elements: #fff;
+    --light-background: #fafafa;
+    --light-input-text:#888787;
+    --light-border-color:#f1f0f0aa;
+    --light-text: #111517;
+
     --header-height: 5rem;
     --left-margin: 3rem;
-    --light-text-color: #fafafaaa;
 }
 
 @font-face{
@@ -40,7 +47,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--dark);
+    /* color: var(--dark); */
     font-family: inherit;
 }
 
