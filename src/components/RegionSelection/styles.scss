@@ -1,0 +1,49 @@
+.region-selection{
+    width: 15%;
+    position: relative;
+    
+    select{
+        padding: 1rem 1.45rem;
+        border-radius: 10px;
+        width: 100%;
+        appearance: none;
+
+        &:focus{
+            outline: none;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    i{
+        position: absolute;
+        top: 20px;
+        right: 10%;
+    }
+}
+
+.region-selection-dark{
+    select{
+        background-color: var(--dark-elements);
+        border: 5px solid var(--dark-border-color);
+        color: var(--dark-text);
+
+        option{
+            color: var(--dark-text);
+        }
+    }
+}
+
+.region-selection-light{
+    select{
+        background-color: var(--light-elements);
+        border: 5px solid var(--light-border-color);
+        color: var(--light-text-color);
+
+        option{
+            color: var(--light-text-color);
+        }
+    }
+}

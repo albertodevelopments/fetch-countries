@@ -1,0 +1,50 @@
+.search-input{
+    position: relative;
+    width: 40%;
+
+    input{
+        width: 90%;
+        padding: 1rem 1.45rem;
+        border-radius: 10px;
+        padding-left: 3.5rem;
+        font-family: 'Nunito Sans Light';
+    }
+    
+    i{
+        position: absolute;
+        top: 23px;
+        left: 30px;
+    }
+
+    input::placeholder{
+        color: var(--light-text);
+    }
+
+    input:focus{
+        outline: none;
+    }
+}
+
+.search-input-dark{
+    input{
+        color: var(--dark-text);
+        background-color: var(--dark-elements);
+        border: 5px solid var(--dark-border-color);
+    }
+    
+    i, input, input::placeholder{
+        color: var(--dark-text);
+    }
+}
+
+.search-input-light{
+    input{
+        color: var(--light-text);
+        background-color: var(--light-elements);
+        border: 5px solid var(--light-border-color);
+    }
+    
+    i, input, input::placeholder{
+        color: var(--light-text);
+    }
+}

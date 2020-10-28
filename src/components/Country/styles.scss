@@ -1,0 +1,70 @@
+$light-color: #fafafaaa;
+
+.country{
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    padding-bottom: 2rem;
+    
+    span{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .name{
+        font-size: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .info{
+        font-family: 'Nunito Sans Light';
+        font-size: 0.8rem;
+        padding-bottom: 0.15rem;
+
+        strong{
+            margin-right: 0.25rem;
+        }
+    }
+}
+
+.country:hover{
+    cursor: pointer;
+}
+
+
+.country-dark{
+    color: var(--dark-text);
+    background-color: var(--dark-elements);
+    border: 5px solid var(--dark-border-color);
+    
+
+    .info{
+        color: var(--dark-info-text);
+
+        strong{
+            color: var(--dark-text);
+        }
+    }
+}
+
+.country-light{
+    color: var(--light-text);
+    background-color: var(--ligth-elements);
+    border: 5px solid var(--light-border-color);
+    
+
+    .info{
+        color: var(--light-text);
+
+        strong{
+            color: var(--light-text);
+        }
+    }
+}
