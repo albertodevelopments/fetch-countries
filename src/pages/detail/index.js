@@ -36,6 +36,63 @@ const Detail = () => {
         languages: [],
     })
 
+    /* SÓLO TESTING - Para hacer la prueba hay que comentar los estados country y borderCountries *
+    const country = {
+        name: 'Belgium',
+        nativeName: 'België',
+        flag: 'https://restcountries.eu/data/bel.svg',
+        population: 11319511,
+        region: 'Europe',
+        subregion: 'Western Europe',
+        capital: 'Brussels',
+        topLevelDomain: ['.be'],
+        currencies: [{ code: 'EUR', name: 'Euro', symbol: '€' }],
+        languages: [
+            {
+                iso639_1: 'nl',
+                iso639_2: 'nld',
+                name: 'Dutch',
+                nativeName: 'Nederlands',
+            },
+            {
+                iso639_1: 'fr',
+                iso639_2: 'fra',
+                name: 'French',
+                nativeName: 'français',
+            },
+            {
+                iso639_1: 'de',
+                iso639_2: 'deu',
+                name: 'German',
+                nativeName: 'Deutsch',
+            },
+        ],
+        borders: ['FRA', 'DEU', 'LUX', 'NLD'],
+    }
+    const borderCountries = [
+        {
+            name: 'France',
+            nativeName: 'France',
+            flag: 'https://restcountries.eu/data/fin.svg',
+            population: 66710000,
+            region: 'Europe',
+            subregion: 'Western Europe',
+            capital: 'Paris',
+            topLevelDomain: ['.fr'],
+            currencies: [{ code: 'EUR', name: 'Euro', symbol: '€' }],
+            languages: [
+                {
+                    iso639_1: 'fr',
+                    iso639_2: 'fra',
+                    name: 'French',
+                    nativeName: 'français',
+                },
+            ],
+            borders: ['AND', 'BEL', 'DEU', 'ITA', 'LUX', 'MCO', 'ESP', 'CHE'],
+        },
+    ]
+    * SÓLO TESTING - Para hacer la prueba hay que comentar los estados country y borderCountries */
+
     const {
         name,
         nativeName,
@@ -50,9 +107,7 @@ const Detail = () => {
         borders,
     } = country
 
-    const { appMode, currentCountry, setCurrentCountry } = useContext(
-        AppContext
-    )
+    const appContext = useContext(AppContext)
     const { formattedPopulation, formatPopulation } = useNumberFormat(
         country.population
     )
@@ -64,8 +119,10 @@ const Detail = () => {
     /* ---------------------------- USE EFFECTS --------------------------- */
     /* -------------------------------------------------------------------- */
     useEffect(() => {
-        currentCountry && setCountry(currentCountry)
-    }, [currentCountry])
+        appContext &&
+            appContext.currentCountry &&
+            setCountry(appContext.currentCountry)
+    }, [appContext && appContext.currentCountry])
 
     useEffect(() => {
         population && formatPopulation()
@@ -109,8 +166,8 @@ const Detail = () => {
     /* ----------------------------- FUNCIONES ---------------------------- */
     /* -------------------------------------------------------------------- */
     const handleClickBack = () => {
-        setCurrentCountry('')
-        history.push('/home')
+        appContext && appContext.setCurrentCountry('')
+        history && history.push('/home')
     }
 
     if (name === '') return null
@@ -122,29 +179,36 @@ const Detail = () => {
         <AppLayout>
             <section
                 className={`detail ${
-                    appMode === 'Light' ? 'detail-light' : 'detail-dark'
+                    appContext && appContext.appMode === 'Light'
+                        ? 'detail-light'
+                        : 'detail-dark'
                 }`}
                 data-testid='detail'
             >
                 <article data-testid='detail-header'>
-                    <button onClick={handleClickBack}>
+                    <button data-testid='back' onClick={handleClickBack}>
                         <i className='fas fa-arrow-left' type='button'></i> Back
                     </button>
                 </article>
                 <section>
                     <img className='flag' src={flag} alt={name} />
                     <article>
-                        <h2 className='name'>{name}</h2>
+                        <h2 className='name' data-testid='detail-name'>
+                            {name}
+                        </h2>
                         <div
                             className={`country-info ${
-                                appMode === 'Light'
+                                appContext && appContext.appMode === 'Light'
                                     ? 'country-info-light'
                                     : 'country-info-dark'
                             }`}
                         >
                             <div>
                                 <span>
-                                    <strong>Native Name:</strong> {nativeName}
+                                    <strong>Native Name:</strong>{' '}
+                                    <span data-testid='native-name'>
+                                        {nativeName}
+                                    </span>
                                 </span>
                                 <span>
                                     <strong>Population:</strong>{' '}
@@ -154,7 +218,10 @@ const Detail = () => {
                                     <strong>Region:</strong> {region}
                                 </span>
                                 <span>
-                                    <strong>Subregion:</strong> {subregion}
+                                    <strong>Subregion:</strong>{' '}
+                                    <span data-testid='subregion'>
+                                        {subregion}
+                                    </span>
                                 </span>
                                 <span>
                                     <strong>Capital:</strong> {capital}
@@ -163,27 +230,35 @@ const Detail = () => {
                             <div>
                                 <span>
                                     <strong>Top Level Domain:</strong>{' '}
-                                    {topLevelDomain}
+                                    <span data-testid='toplevel-domain'>
+                                        {topLevelDomain}
+                                    </span>
                                 </span>
                                 <span>
                                     <strong>Currencies:</strong>{' '}
-                                    {listOfCurrencies}
+                                    <span data-testid='currencies'>
+                                        {listOfCurrencies}
+                                    </span>
                                 </span>
                                 <span>
                                     <strong>Languages:</strong>{' '}
-                                    {listOfLanguages}
+                                    <span data-testid='languages'>
+                                        {listOfLanguages}
+                                    </span>
                                 </span>
                             </div>
                         </div>
                         <footer>
                             <span>Border Countries:</span>
-                            {borderCountries &&
-                                borderCountries.map(country => (
-                                    <CountryButton
-                                        key={country.name}
-                                        country={country}
-                                    />
-                                ))}
+                            <div data-testid='border-countries'>
+                                {borderCountries &&
+                                    borderCountries.map(country => (
+                                        <CountryButton
+                                            key={country.name}
+                                            country={country}
+                                        />
+                                    ))}
+                            </div>
                         </footer>
                     </article>
                 </section>

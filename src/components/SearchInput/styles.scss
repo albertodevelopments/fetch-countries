@@ -16,10 +16,6 @@
         left: 30px;
     }
 
-    input::placeholder{
-        color: var(--light-text);
-    }
-
     input:focus{
         outline: none;
     }
@@ -46,5 +42,18 @@
     
     i, input, input::placeholder{
         color: var(--light-text);
+    }
+}
+
+/* -------------------------------------------------------------------- */
+/* ----------------------------- RESPONSIVE --------------------------- */
+/* -------------------------------------------------------------------- */
+@media (max-width: 414px){
+    .search-input{
+        width: 100%;
+
+        input{
+            width: 100%;
+        }
     }
 }

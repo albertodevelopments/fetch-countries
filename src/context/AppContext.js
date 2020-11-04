@@ -1,12 +1,12 @@
 import React, { createContext, useState } from 'react'
 
-export const AppContext = createContext(null)
+export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
     /* -------------------------------------------------------------------- */
     /* --------------------- CONSTANTES Y DECLARACIONES ------------------- */
     /* -------------------------------------------------------------------- */
-    const [appMode, setAppMode] = useState('dark')
+    const [appMode, setAppMode] = useState('Dark')
     const [currentCountry, setCurrentCountry] = useState('')
 
     /* -------------------------------------------------------------------- */

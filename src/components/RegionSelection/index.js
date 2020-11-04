@@ -17,7 +17,7 @@ const RegionSelection = ({ getCountriesByRegion }) => {
     /* -------------------------------------------------------------------- */
     /* ----------------------------- FUNCIONES ---------------------------- */
     /* -------------------------------------------------------------------- */
-    const { appMode } = useContext(AppContext)
+    const appContext = useContext(AppContext)
     const handleChangeRegion = e => {
         getCountriesByRegion(e.target.value)
     }
@@ -28,7 +28,7 @@ const RegionSelection = ({ getCountriesByRegion }) => {
     return (
         <span
             className={`region-selection ${
-                appMode === 'Light'
+                appContext && appContext.appMode === 'Light'
                     ? 'region-selection-light'
                     : 'region-selection-dark'
             }`}

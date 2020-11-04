@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { unmountComponentAtNode } from 'react-dom'
-import { render, act } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import Country from 'components/Country'
+import { toBeInTheDocument } from '@testing-library/jest-dom/extend-expect'
 
 test('should render without crashing', async () => {
     const country = {}

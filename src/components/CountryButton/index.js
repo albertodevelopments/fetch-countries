@@ -11,13 +11,15 @@ const CountryButton = ({ country }) => {
     /* --------------------- CONSTANTES Y DECLARACIONES ------------------- */
     /* -------------------------------------------------------------------- */
     const history = useHistory()
-    const { setCurrentCountry } = useContext(AppContext)
+    const appContext = useContext(AppContext)
 
     /* -------------------------------------------------------------------- */
     /* ----------------------------- FUNCIONES ---------------------------- */
     /* -------------------------------------------------------------------- */
     const handleClickCountry = async () => {
-        await setCurrentCountry(country)
+        appContext &&
+            appContext.setCurrentCountry &&
+            (await appContext.setCurrentCountry(country))
         history.push(`/detail/${country.name}`)
     }
 

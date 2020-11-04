@@ -7,9 +7,13 @@ import './styles.scss'
 
 const SearchInput = ({ getCountriesByName }) => {
     /* -------------------------------------------------------------------- */
+    /* --------------------- CONSTANTES Y DECLARACIONES ------------------- */
+    /* -------------------------------------------------------------------- */
+    const appContext = useContext(AppContext)
+
+    /* -------------------------------------------------------------------- */
     /* ----------------------------- FUNCIONES ---------------------------- */
     /* -------------------------------------------------------------------- */
-    const { appMode } = useContext(AppContext)
     const handleSearch = e => {
         if (e.keyCode === 13) {
             getCountriesByName(e.target.value)
@@ -22,7 +26,9 @@ const SearchInput = ({ getCountriesByName }) => {
     return (
         <div
             className={`search-input ${
-                appMode === 'Light' ? 'search-input-light' : 'search-input-dark'
+                appContext && appContext.appMode === 'Light'
+                    ? 'search-input-light'
+                    : 'search-input-dark'
             }`}
         >
             <i className='fas fa-search'></i>

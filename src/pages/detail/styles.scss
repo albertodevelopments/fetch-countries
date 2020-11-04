@@ -19,12 +19,10 @@ $img-border-size: 18px;
 
     button{
         min-width: 7.5rem;
-        color: var(--light-text-color);
         padding: 0.5rem 1.85rem;
         font-family: 'Nunito Sans Light';
         font-size: 0.8rem;
-        border-radius: 10px;
-        transition: all .3s ease;
+        border-radius: 8px;        
     }
 
     button:hover{
@@ -54,8 +52,13 @@ $img-border-size: 18px;
                 padding-bottom: 2rem;
             }   
             footer{
+                display: flex;
+                align-items: center;
                 span{
                     margin-right: 1rem;
+                }
+                div{
+                    display: flex;
                 }
             }
         }
@@ -78,6 +81,12 @@ $img-border-size: 18px;
         background-color: var(--dark-elements);
         color: var(--dark-text);
         border: 5px solid var(--dark-border-color);
+        transition: all .3s ease;
+    }
+
+    button:hover{
+        background-color: #2B394566;
+        border-color: var(--dark-text);
     }
 }
 
@@ -140,6 +149,77 @@ $img-border-size: 18px;
 
         strong{
             color: var(--light-text);
+        }
+    }
+}
+
+/* -------------------------------------------------------------------- */
+/* ----------------------------- RESPONSIVE --------------------------- */
+/* -------------------------------------------------------------------- */
+@media (max-width: 414px){
+    .detail{
+        > article{
+            display: flex;
+            justify-content: space-between;      
+            padding: 2rem 0 0 1rem;
+        }
+    
+        *{
+            font-size: inherit;
+            color: inherit;
+        }
+    
+        button{
+            min-width: 6.5rem;
+        }
+    
+        section{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            padding-left: calc(1.5rem - #{$img-border-size});
+            padding-right: calc(1.5rem - #{$img-border-size});
+    
+            img{
+                width: 100%;
+            }
+    
+            > article{
+                padding: 1.5rem 1.25rem;
+
+                div{
+                    display: flex;
+                    flex-direction: column;
+
+                    > div{
+                        margin-bottom: 1.5rem;
+                    }
+                }
+    
+                footer{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    span{
+                        margin-right: 0;
+                    }
+
+                    div{
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+
+                        button{
+                            padding: 0.25rem 1.15rem;
+                            font-size: 0.8rem;
+                            margin: 0 auto;
+                            border-width: 2px;
+                            margin-left: -2px;
+                            margin-right: 0.5rem;
+                            margin-top: 0.4rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }

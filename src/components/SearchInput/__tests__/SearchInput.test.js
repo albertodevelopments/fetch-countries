@@ -1,17 +1,21 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { toBeInTheDocument } from '@testing-library/jest-dom/extend-expect'
 import SearchInput from 'components/SearchInput'
 import { unmountComponentAtNode } from 'react-dom'
 
+const getCountriesByName = jest.fn()
+
 test('should render without crashing', () => {
     const element = document.createElement('div')
-    render(<SearchInput />, element)
+    render(<SearchInput getCountriesByName={getCountriesByName} />, element)
     unmountComponentAtNode(element)
 })
 
 test('should contain the proper elements', () => {
-    const wrapper = render(<SearchInput />)
+    const wrapper = render(
+        <SearchInput getCountriesByName={getCountriesByName} />
+    )
     //wrapper.debug()
 
     const searchField = screen.getByTestId('search-field')

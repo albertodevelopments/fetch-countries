@@ -8,11 +8,11 @@ import Home from 'pages/home'
 import Detail from 'pages/detail'
 
 // Context
-import AppState from 'context/AppState'
+import { AppProvider } from 'context/AppContext'
 
 function App() {
     return (
-        <AppState>
+        <AppProvider>
             <Router>
                 <Switch>
                     <Route exact path='/home'>
@@ -26,7 +26,7 @@ function App() {
                     </Route>
                 </Switch>
             </Router>
-        </AppState>
+        </AppProvider>
     )
 }
 

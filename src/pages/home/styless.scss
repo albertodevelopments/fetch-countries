@@ -26,3 +26,24 @@
     background-color: var(--light-background);
     color: var(--light-text);
 }
+
+/* -------------------------------------------------------------------- */
+/* ----------------------------- RESPONSIVE --------------------------- */
+/* -------------------------------------------------------------------- */
+@media (max-width: 414px){
+    .home{
+        display: flex;
+        flex-direction: column;   
+        padding: 0.5rem;
+
+        > article{
+            display: flex;
+            flex-direction: column;
+        }
+
+        *{
+            font-size: inherit;
+            color: inherit;
+        }    
+    }
+}

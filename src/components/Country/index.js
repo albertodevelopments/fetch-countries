@@ -19,7 +19,7 @@ const Country = ({ country }) => {
     const { formattedPopulation, formatPopulation } = useNumberFormat(
         population
     )
-    const { appMode, setCurrentCountry } = useContext(AppContext)
+    const appContext = useContext(AppContext)
     const history = useHistory()
 
     /* -------------------------------------------------------------------- */
@@ -33,7 +33,7 @@ const Country = ({ country }) => {
     /* ----------------------------- FUNCIONES ---------------------------- */
     /* -------------------------------------------------------------------- */
     const handleClickCountry = () => {
-        setCurrentCountry(country)
+        appContext && appContext.setCurrentCountry(country)
         history.push(`/detail/${country.name}`)
     }
 
@@ -43,13 +43,17 @@ const Country = ({ country }) => {
     return (
         <article
             className={`country ${
-                appMode === 'Light' ? 'country-light' : 'country-dark'
+                appContext && appContext.appMode === 'Light'
+                    ? 'country-light'
+                    : 'country-dark'
             }`}
             data-testid='country-card'
             onClick={handleClickCountry}
         >
             <img src={flag} />
-            <span className='name'>{name}</span>
+            <span className='name' data-testid='country-name'>
+                {name}
+            </span>
             <span className='info'>
                 <strong>Population:</strong> {formattedPopulation}
             </span>

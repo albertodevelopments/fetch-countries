@@ -7,6 +7,7 @@
         border-radius: 10px;
         width: 100%;
         appearance: none;
+        font-family: 'Nunito Sans Light';
 
         &:focus{
             outline: none;
@@ -44,6 +45,18 @@
 
         option{
             color: var(--light-text-color);
+        }
+    }
+}
+/* -------------------------------------------------------------------- */
+/* ----------------------------- RESPONSIVE --------------------------- */
+/* -------------------------------------------------------------------- */
+@media (max-width: 414px){
+    .region-selection{
+        width: 60%;
+        
+        select{
+            width: 100%;
         }
     }
 }

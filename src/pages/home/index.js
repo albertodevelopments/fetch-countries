@@ -23,7 +23,7 @@ const Home = () => {
     /* --------------------- CONSTANTES Y DECLARACIONES ------------------- */
     /* -------------------------------------------------------------------- */
     const [countries, setCountries] = useState(null)
-    const { appMode } = useContext(AppContext)
+    const appContext = useContext(AppContext)
 
     /* -------------------------------------------------------------------- */
     /* ---------------------------- USE EFFECTS --------------------------- */
@@ -78,18 +78,18 @@ const Home = () => {
         <AppLayout>
             <section
                 className={`home ${
-                    appMode === 'Light' ? 'home-light' : 'home-dark'
+                    appContext && appContext.appMode === 'Light'
+                        ? 'home-light'
+                        : 'home-dark'
                 }`}
                 data-testid='home'
             >
-                {/* Cabecera */}
                 <article data-testid='home-header'>
                     <SearchInput getCountriesByName={getCountriesByName} />
                     <RegionSelection
                         getCountriesByRegion={getCountriesByRegion}
                     />
                 </article>
-                {/* Cuerpo */}
                 <ListOfCountries countries={countries} />
             </section>
         </AppLayout>

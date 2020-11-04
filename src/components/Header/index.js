@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 // Context
-import AppContext from 'context/AppContext'
+import { AppContext } from 'context/AppContext'
 
 import './styles.scss'
 
@@ -9,8 +9,7 @@ const Header = () => {
     /* -------------------------------------------------------------------- */
     /* --------------------- CONSTANTES Y DECLARACIONES ------------------- */
     /* -------------------------------------------------------------------- */
-    const { appMode, changeAppMode } = useContext(AppContext)
-
+    const appContext = useContext(AppContext)
     const handleChangeMode = () => {
         changeAppMode()
     }
@@ -21,12 +20,14 @@ const Header = () => {
     return (
         <header
             className={`header ${
-                appMode === 'Light' ? 'header-light' : 'header-dark'
+                appContext && appContext.appMode === 'Light'
+                    ? 'header-light'
+                    : 'header-dark'
             }`}
         >
             <h1 data-testid='title'>Where in the world?</h1>
             <div onClick={handleChangeMode}>
-                {appMode === 'Light' ? (
+                {appContext && appContext.appMode === 'Light' ? (
                     <>
                         <i
                             data-testid='dark-mode-icon'
