@@ -10,6 +10,8 @@ import Detail from 'pages/detail'
 // Context
 import { AppProvider } from 'context/AppContext'
 
+import 'assets/fontawesome/css/all.min.css'
+
 function App() {
     return (
         <AppProvider>

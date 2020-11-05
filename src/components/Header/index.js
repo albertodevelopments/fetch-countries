@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { AppContext } from 'context/AppContext'
 
 import './styles.scss'
+// import '/assets/fontawesome/css/all.min.css'
 
 const Header = () => {
     /* -------------------------------------------------------------------- */
@@ -11,7 +12,7 @@ const Header = () => {
     /* -------------------------------------------------------------------- */
     const appContext = useContext(AppContext)
     const handleChangeMode = () => {
-        changeAppMode()
+        appContext.changeAppMode()
     }
 
     /* -------------------------------------------------------------------- */

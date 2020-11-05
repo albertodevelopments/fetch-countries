@@ -34,6 +34,11 @@ const Country = ({ country }) => {
     /* -------------------------------------------------------------------- */
     const handleClickCountry = () => {
         appContext && appContext.setCurrentCountry(country)
+
+        /* Guardamos el país actual en el local storage para recuperarlos si
+           refrescamos la página */
+        localStorage.setItem('fetch-country-current', JSON.stringify(country))
+
         history.push(`/detail/${country.name}`)
     }
 
