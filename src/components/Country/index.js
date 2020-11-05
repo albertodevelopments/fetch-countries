@@ -27,7 +27,7 @@ const Country = ({ country }) => {
     /* -------------------------------------------------------------------- */
     useEffect(() => {
         population && formatPopulation(population)
-    }, [population])
+    }, [population, formatPopulation])
 
     /* -------------------------------------------------------------------- */
     /* ----------------------------- FUNCIONES ---------------------------- */
@@ -55,7 +55,7 @@ const Country = ({ country }) => {
             data-testid='country-card'
             onClick={handleClickCountry}
         >
-            <img src={flag} />
+            <img src={flag} alt={name} />
             <span className='name' data-testid='country-name'>
                 {name}
             </span>

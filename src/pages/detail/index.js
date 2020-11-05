@@ -119,7 +119,6 @@ const Detail = () => {
     /* ---------------------------- USE EFFECTS --------------------------- */
     /* -------------------------------------------------------------------- */
     useEffect(() => {
-        console.log(appContext.appMode)
         if (
             !appContext.currentCountry &&
             localStorage.getItem('fetch-country-current')
@@ -128,17 +127,17 @@ const Detail = () => {
                 JSON.parse(localStorage.getItem('fetch-country-current'))
             )
         }
-    }, [])
+    }, [appContext])
 
     useEffect(() => {
         appContext &&
             appContext.currentCountry &&
             setCountry(appContext.currentCountry)
-    }, [appContext.currentCountry])
+    }, [appContext, appContext.currentCountry])
 
     useEffect(() => {
         population && formatPopulation()
-    }, [population])
+    }, [population, formatPopulation])
 
     useEffect(() => {
         if (languages.length === 0) return
